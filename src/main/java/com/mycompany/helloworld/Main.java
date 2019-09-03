@@ -6,6 +6,7 @@
 package com.mycompany.helloworld;
 import java.util.Scanner;
 import java.text.NumberFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,11 +17,20 @@ public class Main {
         Scanner price = new Scanner(System.in);
         System.out.println("Enter the amount of purchase: ");
         
-        double amountOfPurchase = price.nextDouble();
-        double stateSalesTax = amountOfPurchase * .04;
-        double countySalesTax = amountOfPurchase * .02;
+        String amountOfPurchase = JOptionPane.showInputDialog("Please Enter Amount of Purchase: ");
+        
+        try {
+            double amountOfPurchaseAsDouble = Double.parseDouble(amountOfPurchase); 
+        } catch(Exception e){
+            System.out.println("Please make sure to enter a decimal value!");
+
+        }
+        double amountOfPurchaseAsDouble = Double.parseDouble(amountOfPurchase);
+      
+        double stateSalesTax = amountOfPurchaseAsDouble * .04;
+        double countySalesTax = amountOfPurchaseAsDouble * .02;
         double totalSalesTax = stateSalesTax + countySalesTax;
-        double totalOfSale = amountOfPurchase + totalSalesTax;
+        double totalOfSale = amountOfPurchaseAsDouble + totalSalesTax;
         
         NumberFormat currencyInstance = NumberFormat.getCurrencyInstance();
         // A formatter that will convert into a currency instance
