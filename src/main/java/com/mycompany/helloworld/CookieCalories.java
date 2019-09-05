@@ -19,7 +19,7 @@ public class CookieCalories {
         int amountOfCookies = scanner.nextInt();
         
         
-        int caloriesPerCookie = 30;
+        int caloriesPerCookie = 75;
         int totalAmountOfCalories = amountOfCookies * caloriesPerCookie;
         
         System.out.println("You have consumed " + totalAmountOfCalories + " calories in cookies!");
